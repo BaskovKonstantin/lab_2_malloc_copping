@@ -13,6 +13,7 @@ $(function (){
 
     function drawPoint(x, y, r, result) {
         ctx.beginPath();
+        r=1;
         if (result == "Есть пробитие") {
             ctx.fillStyle = "rgba(0, 255, 0, 1)";
         }else {
@@ -26,8 +27,9 @@ $(function (){
         canvas.onmousedown = function (e) {
             let s = 0;
             let radR = document.getElementById("R");
-            if (radR == null) {
+            if ((radR.value !=1)&&(radR.value !=2)&&(radR.value !=3)&&(radR.value !=4)&&(radR.value !=5)) {
                 alert("Вы не выбрали R!");
+                return 0;
             }else if(radR.value == 1) {
                 s = 0.8;
             }
@@ -43,19 +45,19 @@ $(function (){
 
 
             let corArr = windowToCanvas(canvas, e.clientX, e.clientY);
-            let x_real = s * ((corArr.x - 254)/175);
-            let y_real = (-1) * s * ((corArr.y - 254)/175);
+            let x_real =  ((corArr.x - 254)/175);
+            let y_real = (-1) *((corArr.y - 254)/175);
 
             drawPoint(x_real,y_real,radR.value,"Есть пробитие");
 
-            // let out = document.getElementById("X");
-            // out.value = x_real.toFixed(3);
+            let out = document.getElementById("X");
+            out.value = parseInt(x_real*s);
 
             out = document.getElementById("cordY");
-            out.value = y_real.toFixed(3);
+            out.value = (y_real*s).toFixed(3);
             /* пока что коменчу что бы отладить правильный тык */
-            out = document.getElementById("submint");
-            out.click();
+            // out = document.getElementById("submint");
+            // out.click();
         }
 
         function draw(){

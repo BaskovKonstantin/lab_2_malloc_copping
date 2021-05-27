@@ -20,7 +20,7 @@
     </div>
 
     <div class="image">
-        <canvas class="canvas" width="500" height="500" id="canvas">
+        <canvas class="canvas" width="500" height="500" id="canvas" onmousedown = "  ">
         </canvas>
     </div>
 
@@ -43,7 +43,7 @@
                     <input type="checkbox" name="coordinate_X" value="3" onclick=" X.value = 3 ">3
                     <input type="checkbox" name="coordinate_X" value="4" onclick=" X.value = 4 ">4
 
-                    <input type="hidden" id="X" name="coor_X">
+                    <input type="text" id="X" name="coor_X">
                 </div>
                 <div class="tablevalue">
                     <p>Y</p>
@@ -59,7 +59,7 @@
                     <input class="inputbutton" id="mybutton_4" type="button" name="coordinata_R" value="4" onclick=" R.value = 4 "> 4
                     <input class="inputbutton" id="mybutton_5" type="button" name="coordinata_R" value="5" onclick=" R.value = 5 "> 5
 
-                    <input type="hidden" id="R" name="coor_R">
+                    <input type="text" id="R" name="coor_R">
                 </div>
                 <div class="buttonsent"><button id="submint" type="submit">Отправить</button></div>
                 <div class="buttonresent"><button id="resent" type="reset">Сбросить</button></div>
@@ -83,6 +83,8 @@
                     <th>scripttime</th>
                     <th>Result</th>
                 </tr>
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js" type=""></script>
+                <script src="main.js"></script>
                 <c:forEach var="tochks" items="${requestScope.tochka_list}">
                     <tr>
                         <td>${tochks.coordinate_x}</td>
@@ -97,7 +99,6 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" type=""></script>
-<script src="main.js"></script>
+
 </body>
 </html>
